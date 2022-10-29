@@ -1,0 +1,28 @@
+name: multi-runner
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  job1:
+    name: run-ubuntu-18.04
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: print-date
+        run: date
+  job2:
+    name: run-ubuntu-20.04
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: print-date
+        run: date
+  job3:
+    name: run-ubuntu-latest
+    runs-on: ubuntu-latest
+    needs: [ job1, job2 ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: print-date
+        run: date
