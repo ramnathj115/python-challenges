@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [ push ]
 
 jobs:
   build:
@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run a single line
-          - run: echo "Hi"
+          run: echo "Hi"
       - name: Run a multi line
-          - run: |
-              echo "Hi"
-              echo "How are you"
+          run: |
+            echo "Hi"
+            echo "Hello"
