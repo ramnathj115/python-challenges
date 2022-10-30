@@ -1,0 +1,16 @@
+name: artifact-runner
+on:
+  push:
+    branches: [ main ]
+env:
+  artifact-name: sample-artifact
+jobs:
+  artifact-create-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout-step
+        uses: actions/checkout@v2.0
+      - name: upload-artifact-step
+        uses: actions/upload-artifact@v3
+        with:
+          name: { { env.artifact-name } }
