@@ -1,0 +1,26 @@
+name: code-deployer
+on:
+  push:
+    branches: [main]
+env:
+  artifact-name: py-artifact
+jobs:
+  setup-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: python ./challenges/*.py
+  create-artifact:
+    runs-on: ubuntu-latest
+    needs:  [setup-python]
+    steps:
+      - uses: actions/checkout@v3
+      - name: upload-artifact-step
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.artifact-name }}
+          path: .
+
