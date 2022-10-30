@@ -1,7 +1,7 @@
 name: multi-runner
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   job1:
