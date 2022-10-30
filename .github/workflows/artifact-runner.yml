@@ -13,4 +13,4 @@ jobs:
       - name: upload-artifact-step
         uses: actions/upload-artifact@v3
         with:
-          name: { { env.artifact-name } }
+          name: ${ { env.artifact-name } }
